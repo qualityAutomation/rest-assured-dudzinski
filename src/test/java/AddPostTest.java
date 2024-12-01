@@ -17,24 +17,18 @@ public class AddPostTest {
                 "  \"author\": \"Paweł\"\n" +
                 "}";
 
-        given().log().all().contentType(ContentType.JSON)
-                .body(newPost)
-                .when().post("http://localhost:3000/posts")
-                .then()
-                .log()
-                .all();
+        given().log().all().contentType(ContentType.JSON).body(newPost).
+                when().post("http://localhost:3000/posts").
+                then().log().all();
     }
 
     @Test
     public void addPostFromFile() {
         File newPost = new File("src/test/resources/post.json");
 
-        given().log().all().contentType(ContentType.JSON)
-                .body(newPost)
-                .when().post("http://localhost:3000/posts")
-                .then()
-                .log()
-                .all();
+        given().log().all().contentType(ContentType.JSON).body(newPost).
+                when().post("http://localhost:3000/posts").
+                then().log().all();
     }
 
     @Test
@@ -46,25 +40,19 @@ public class AddPostTest {
         newPost.put("Title", "Tytuł z mapy");
         newPost.put("Author", "Daria");
 
-        given().log().all().contentType(ContentType.JSON)
-                .body(newPost)
-                .when().post("http://localhost:3000/posts")
-                .then()
-                .log()
-                .all();
+        given().log().all().contentType(ContentType.JSON).body(newPost).
+                when().post("http://localhost:3000/posts").
+                then().log().all();
     }
 
     @Test
-    public void addPostFromObject(){
+    public void addPostFromObject() {
         Post newPost = new Post();
         newPost.setTitle("Tytuł obiektowy");
         newPost.setAuthor("Author obiektowy");
 
-        given().log().all().contentType(ContentType.JSON)
-                .body(newPost)
-                .when().post("http://localhost:3000/posts")
-                .then()
-                .log()
-                .all();
+        given().log().all().contentType(ContentType.JSON).body(newPost).
+                when().post("http://localhost:3000/posts").
+                then().log().all();
     }
 }
