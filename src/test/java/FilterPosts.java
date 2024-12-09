@@ -3,9 +3,8 @@ import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
 
-import static io.restassured.RestAssured.authentication;
+
 import static io.restassured.RestAssured.given;
 
 public class FilterPosts {
@@ -34,7 +33,7 @@ public class FilterPosts {
     public void filterPostsByAuthorAndTitle() {
         Map<String, Object> params = new HashMap<>();
         params.put("title", "Pierwszy post z pliku");
-        params.put("author","Tomek");
+        params.put("author", "Tomek");
 
         given().log().all().queryParams(params).
                 when().get("http://localhost:3000/posts").
